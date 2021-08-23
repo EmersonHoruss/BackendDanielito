@@ -1,0 +1,11 @@
+### POST ORDER
+POST http://localhost:3000/
+Content-Type: application/json
+
+{
+    "idOrder": "467068e4-b39e-11eb-beed-842afd1385ba",
+    "date": "19-8-2021"
+}
+
+### GET ORDERS
+GET http://localhost:3000/
