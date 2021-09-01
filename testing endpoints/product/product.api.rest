@@ -1,0 +1,26 @@
+### POST ORDER
+POST http://localhost:3000/product/product
+Content-Type: application/json
+
+{
+    "_stock":9,
+    "_manufactured":false,
+    "_idBrand":"612732e592f54b32dc73b224",
+    "_idCategory":"6127329d92f54b32dc73b21d",
+    "_idSize":"612732e592f54b32dc73b224"
+}
+
+
+
+### GET ORDERS
+GET http://localhost:3000/product/product
+
+<<<<<   DATA TESTING   >>>>> 
+    "_stock":6,
+    "_manufactured":false,
+
+    "_stock":3,
+    "_manufactured":false,
+
+    "_stock":12,
+    "_manufactured":false,

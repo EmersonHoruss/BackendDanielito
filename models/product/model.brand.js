@@ -1,16 +1,11 @@
 import mongoose from "mongoose";
 
-const OrderSchema = new mongoose.Schema(
+const BrandSchema = new mongoose.Schema(
   {
     _name: {
       type: String,
       unique: true,
       required: true,
-    },
-    _number: {
-      type: Number,
-      unique: false,
-      required: false,
     },
   },
   {
@@ -19,4 +14,4 @@ const OrderSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model("Order", OrderSchema);
+export default mongoose.model("Brand", BrandSchema);

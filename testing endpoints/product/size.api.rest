@@ -1,0 +1,19 @@
+### POST SIZE
+POST http://localhost:3000/product/size
+Content-Type: application/json
+
+{
+    "_name": "XM"
+}
+
+
+### GET SIZES
+GET http://localhost:3000/product/size
+
+<<<<<   DATA TESTING   >>>>>
+    "_name": "2"
+    "_name": "4"
+    "_name": "6"
+    "_name": "8"
+    "_name": "S"
+    "_name": "M"

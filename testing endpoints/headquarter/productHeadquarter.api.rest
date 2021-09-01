@@ -1,0 +1,18 @@
+### POST PRODUCT_HEADQUARTER
+POST http://localhost:3000/headquarter/productHeadquarter
+Content-Type: application/json
+
+{
+    "_stock":6,
+    "_idHeadquarter":"6129c85483df9e42f027015a",
+    "_idProduct":"6129cabd855b8b08e4fc6db1"
+}
+
+
+### GET PRODUCTS_HEADQUARTER
+GET http://localhost:3000/headquarter/productHeadquarter
+
+<<<<<   DATA TESTING   >>>>>
+    "_stock":2,
+    "_idHeadquarter":"612549559619d14e5459f229",
+    "_idProduct":"612548739619d14e5459f211"

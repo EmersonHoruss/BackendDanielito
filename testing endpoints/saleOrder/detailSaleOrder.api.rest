@@ -1,0 +1,14 @@
+### POST DETAIL_SALE_ORDER
+POST http://localhost:3000/saleOrder/detailSaleOrder
+Content-Type: application/json
+
+{
+    "_price": 17,
+    "_amount": 1,
+    "_idProductHeadquarter": "612493709b8d8537685b4b52",
+    "_idSaleOrder": "61252606ca64d0458cec3577"
+}
+
+
+### GET DETAILS_SALE_ORDER
+GET http://localhost:3000/saleOrder/detailSaleOrder/61252606ca64d0458cec3577

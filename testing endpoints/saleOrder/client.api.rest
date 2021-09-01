@@ -1,0 +1,18 @@
+### POST CLIENT
+POST http://localhost:3000/saleOrder/client
+Content-Type: application/json
+
+{
+    "_DNI": "72058247",
+    "_name": "Julio Cesar"
+}
+
+### GET CLIENTS
+GET http://localhost:3000/saleOrder/client
+
+<<<<<   DATA TESTING   >>>>>
+    "_DNI": "72058247",
+    "_name": "Julio Cesar"
+    
+    "_DNI": "72058248",
+    "_name": "Julio Antonio"
