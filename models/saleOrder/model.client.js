@@ -4,12 +4,12 @@ const ClientSchema = new mongoose.Schema(
   {
     _DNI: {
       type: String,
-      unique: false,
+      unique: true,
       required: false,
     },
     _name: {
       type: String,
-      unique: true,
+      unique: false,
       required: true,
     },
     _address: {
@@ -29,7 +29,7 @@ const ClientSchema = new mongoose.Schema(
     },
     _RUC: {
       type: String,
-      unique: false,
+      unique: true,
       required: false,
     },
   },

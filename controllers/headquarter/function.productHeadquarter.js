@@ -1,4 +1,8 @@
 import ProductH from "../../models/headquarter/model.productHeadquarter.js";
+import {
+  _fGetFullProduct,
+  _fGetProductById,
+} from "../product/function.product.js";
 
 // FUNCTIONS
 // if increase the amount so decrease the stock else you get an error
@@ -50,6 +54,25 @@ const _fUpdate = async (_lastAmount, _requiredAmount, _idProduct) => {
     _requiredAmount
   );
   return _fMainUpdate(_validation, _idProductH);
+};
+
+export const _fGetFullProductH = async (_productH) => {
+  const _fullProductH = JSON.parse(JSON.stringify(_productH));
+  const _product = await _fGetProductById(_fullProductH._idProduct);
+  console.log(_product)
+  _fullProductH._product = await _fGetFullProduct(_product);
+  delete _fullProductH._idProduct;
+
+  return _fullProductH;
+};
+
+export const _fGetFullProductHs = async (_productHs) => {
+  const _fullProductHs = [];
+  for (const _productH of _productHs) {
+    const _fullProductH = await _fGetFullProductH(_productH);
+    _fullProductHs.push(_fullProductH);
+  }
+  return _fullProductHs;
 };
 
 export default { _fUpdate };

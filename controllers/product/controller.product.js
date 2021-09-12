@@ -1,8 +1,7 @@
 import Product from "../../models/product/model.product.js";
+import {_fGetFullProducts} from "./function.product.js";
 
-const _fregistered = (requirements) => {
-  return Product.find(requirements).exec();
-};
+
 
 export default {
   // not yet implement the validation for each field
@@ -45,5 +44,11 @@ export default {
   red: async (req, res) => {
     const products = await Product.find();
     return res.json(products);
+  },
+
+  redFull: async (req, res) => {
+    const _products = await Product.find();
+    const _fullItems = await _fGetFullProducts(_products);
+    return res.status(200).json(_fullItems);
   },
 };

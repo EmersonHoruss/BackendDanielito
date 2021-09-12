@@ -33,7 +33,7 @@ const _fCanCollect = async (_id) => {
   const saleOrder = await SaleOrder.find({
     _id,
     _idSeller: { $exists: true },
-    _idClient: { $exists: true },
+    _idClient: { $exists: false },
     _idDebtCollector: { $exists: false },
   });
   return saleOrder.length;
@@ -66,6 +66,10 @@ const _fManagementErrors = async (_id, _idWorker, take = true) => {
     ? await _fErrorTaking(_id, _idWorker)
     : await _fErrorCollecting(_id, _idWorker);
 };
+
+const _fSaleOrderVacuo = async()=>{
+
+}
 
 export default {
   start: async (req, res) => {

@@ -12,7 +12,7 @@ const corsOptions = { origin: "http://localhost:4200" };
 app.set("port", process.env.PORT || keys.PORT);
 
 //middleware
-app.use(cors(corsOptions));
+app.use(cors({}));
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

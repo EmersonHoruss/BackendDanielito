@@ -1,6 +1,6 @@
 import ProductH from "../../models/headquarter/model.productHeadquarter.js";
-import Product from "../../models/product/model.product.js";
 import Validation from "../../library/validations.js";
+import { _fGetFullProductHs } from "./function.productHeadquarter.js";
 
 // if headquarter and product already exists create error otherwise rigester
 // const _fCheckCreate = async (_idHeadquarter, _idProduct) => {
@@ -41,7 +41,7 @@ export default {
     return res.json(productsH);
   },
 
-  getProductsByHeadquarter: async (req, res) => {
+  redProductsByHeadquarter: async (req, res) => {
     const _idHeadquarter = req.params._idHeadquarter;
     const productsH = await ProductH.find({
       _idHeadquarter,
@@ -59,6 +59,15 @@ export default {
       console.log(error);
       return res.status(500).json(error);
     }
+  },
+
+  redFull: async (req, res) => {
+    const _idHeadquarter = req.params._idHeadquarter;
+    const _productHs = await ProductH.find({
+      _idHeadquarter,
+    });
+    const _fullItems = await _fGetFullProductHs(_productHs);
+    return res.status(200).json(_fullItems);
   },
 };
 

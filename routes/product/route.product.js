@@ -9,4 +9,7 @@ router.post("/", controllerProduct.create);
 // Read all
 router.get("/", controllerProduct.red);
 
+// Read full
+router.get("/full", controllerProduct.redFull);
+
 export default router;

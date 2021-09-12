@@ -1,4 +1,4 @@
-### POST ORDER
+### POST PRODUCT
 POST http://localhost:3000/product/product
 Content-Type: application/json
 
@@ -10,10 +10,11 @@ Content-Type: application/json
     "_idSize":"612732e592f54b32dc73b224"
 }
 
-
-
-### GET ORDERS
+### GET PRODUCTS
 GET http://localhost:3000/product/product
+
+### GET FULL PRODUCTS 
+GET http://localhost:3000/product/product/full
 
 <<<<<   DATA TESTING   >>>>> 
     "_stock":6,
