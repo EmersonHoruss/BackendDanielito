@@ -1,4 +1,5 @@
 import Brand from "../../models/product/model.brand.js";
+import { _fGetDebuggedBrandByIdHs } from "./function.brand.js";
 
 export default {
   create: async (req, res) => {
@@ -17,9 +18,15 @@ export default {
     }
   },
 
+  redByHeadquarter: async (req, res) => {
+    const _idHeadquarter = req.params._idHeadquarter;
+    const _brands = await _fGetDebuggedBrandByIdHs(_idHeadquarter);
+    // console.log(_idHeadquarter)
+    return res.json(_brands);
+  },
+
   red: async (req, res) => {
-    const brands = await Brand.find();
-    return res.json(brands);
+    const _brands = await Brand.find();
+    return res.json(_brands);
   },
 };
-

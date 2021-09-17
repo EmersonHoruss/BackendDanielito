@@ -43,8 +43,14 @@ export const _fGetFullProducts = async (_products) => {
 };
 
 export const _fGetProductById = async (_idProduct) => {
-  const _product = await Product.findById(_idProduct);
+  const _products = await Product.findById(_idProduct);
   // console.log(_idProduct,typeof _idProduct)
-  // console.log(_product)
-  return _product;
+  // console.log(_products)
+  return _products;
 };
+
+
+// export const _fGetProductByIdHeadquarter = async (_idHeadquarter)=>{
+//   const _products = await Product.find({_idHeadquarter})
+//   return _products
+// }

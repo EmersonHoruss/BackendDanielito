@@ -8,6 +8,9 @@ Content-Type: application/json
     "_idProduct":"6129cabd855b8b08e4fc6db1"
 }
 
+### GET PRODUCTS_HEADQUARTER BY BRAND, CATEGORY AND SIZE
+### http://localhost:3000/headquarter/productHeadquarter/readByBrandCategorySize/:_idHeadquarter/:_idBrand/:_idCategory/:_idSize
+GET http://localhost:3000/headquarter/productHeadquarter/readByBrandCategorySize/6129c85483df9e42f027015a/null/6127329d92f54b32dc73b21d/612732e592f54b32dc73b224
 
 ### GET PRODUCTS_HEADQUARTER
 GET http://localhost:3000/headquarter/productHeadquarter

@@ -6,6 +6,8 @@ Content-Type: application/json
     "_name": "XM"
 }
 
+### GET SIZES BY HEADQUARTER
+GET http://localhost:3000/product/size/headquarter/6129c85483df9e42f027015a
 
 ### GET SIZES
 GET http://localhost:3000/product/size

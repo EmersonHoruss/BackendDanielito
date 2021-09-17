@@ -59,7 +59,7 @@ const _fUpdate = async (_lastAmount, _requiredAmount, _idProduct) => {
 export const _fGetFullProductH = async (_productH) => {
   const _fullProductH = JSON.parse(JSON.stringify(_productH));
   const _product = await _fGetProductById(_fullProductH._idProduct);
-  console.log(_product)
+  // console.log(_product);
   _fullProductH._product = await _fGetFullProduct(_product);
   delete _fullProductH._idProduct;
 
@@ -73,6 +73,57 @@ export const _fGetFullProductHs = async (_productHs) => {
     _fullProductHs.push(_fullProductH);
   }
   return _fullProductHs;
+};
+
+// Let us just the brands of a list of products
+const _fGetBrands = async (_productHs) => {
+  const _fullBrandHs = [];
+  for (const _productH of _productHs) {
+    const _fullBrandH = (await _fGetFullProductH(_productH))._product._brand;
+    _fullBrandHs.push(_fullBrandH);
+  }
+  return _fullBrandHs;
+};
+
+// Let us just the categories of a list of products
+const _fGetCategories = async (_productHs) => {
+  const _fullCategoryHs = [];
+  for (const _productH of _productHs) {
+    const _fullBrandH = (await _fGetFullProductH(_productH))._product._category;
+    _fullCategoryHs.push(_fullBrandH);
+  }
+  return _fullCategoryHs;
+};
+
+// Let us just the sizes of a list of products
+const _fGetSizes = async (_productHs) => {
+  const _fullSizeHs = [];
+  for (const _productH of _productHs) {
+    const _fullBrandH = (await _fGetFullProductH(_productH))._product._size;
+    _fullSizeHs.push(_fullBrandH);
+  }
+  return _fullSizeHs;
+};
+
+// A component is a brand, a category or a size
+// because they are components of a product
+export const _fGetComponentByIdHs = async (
+  _idHeadquarter,
+  required = "brand"
+) => {
+  const _productHs = await ProductH.find({
+    _idHeadquarter,
+  });
+  const _fullBrandHs =
+    required === "brand"
+      ? _fGetBrands(_productHs)
+      : required === "category"
+      ? _fGetCategories(_productHs)
+      : required === "size"
+      ? _fGetSizes(_productHs)
+      : [];
+  // console.log(_idHeadquarter);
+  return _fullBrandHs;
 };
 
 export default { _fUpdate };

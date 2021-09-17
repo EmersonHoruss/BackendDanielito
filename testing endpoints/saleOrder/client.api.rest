@@ -22,8 +22,8 @@ Content-Type: application/json
     "_RUC": "20530165702"
 }
 
-### READ BY NAME AND DNI XXX NOT IMPLEMENTED
-GET http://localhost:3000/saleOrder/client/readByNameDNI/   /null
+### READ BY NAME AND DNI
+GET http://localhost:3000/saleOrder/client/readByNameDNI/j/null
 
 ### GET CLIENTS
 GET http://localhost:3000/saleOrder/client

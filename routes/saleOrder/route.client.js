@@ -9,7 +9,7 @@ router.post("/", controllerClient.create);
 // Update
 router.put("/:_id", controllerClient.update);
 
-// Read By Name and DNI XXX NOT IMPLEMENTED
+// Read By Name and DNI
 router.get("/readByNameDNI/:_name/:_DNI", controllerClient.redByNameDNI);
 
 // Read all

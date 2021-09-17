@@ -1,4 +1,5 @@
 import Category from "../../models/product/model.category.js";
+import { _fGetDebuggedCategoryByIdHs } from "./function.category.js";
 
 export default {
   create: async (req, res) => {
@@ -15,6 +16,13 @@ export default {
       console.log(error);
       return res.status(500).json(error);
     }
+  },
+
+  redByHeadquarter: async (req, res) => {
+    const _idHeadquarter = req.params._idHeadquarter;
+    const _brands = await _fGetDebuggedCategoryByIdHs(_idHeadquarter);
+    // console.log(_idHeadquarter)
+    return res.json(_brands);
   },
 
   red: async (req, res) => {

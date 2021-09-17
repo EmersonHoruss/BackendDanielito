@@ -6,6 +6,9 @@ const router = Router();
 // Create
 router.post("/", controllerBrand.create);
 
+// Read all by headquarter
+router.get("/headquarter/:_idHeadquarter", controllerBrand.redByHeadquarter);
+
 // Read all
 router.get("/", controllerBrand.red);
 

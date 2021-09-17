@@ -6,6 +6,9 @@ Content-Type: application/json
     "_name": "Otto"
 }
 
+### GET BRANDS BY HEADQUARTER
+GET http://localhost:3000/product/brand/headquarter/6129c85483df9e42f027015a
+
 ### GET BRANDS
 GET http://localhost:3000/product/brand
 

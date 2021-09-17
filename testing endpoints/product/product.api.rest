@@ -13,6 +13,9 @@ Content-Type: application/json
 ### GET PRODUCTS
 GET http://localhost:3000/product/product
 
+### GET FULL PRODUCTS BY ID PRODUCT XXXXXXXX NOT YET IMPLEMENTED
+GET http://localhost:3000/product/product/full/
+
 ### GET FULL PRODUCTS 
 GET http://localhost:3000/product/product/full
 

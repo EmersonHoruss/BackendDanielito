@@ -1,7 +1,5 @@
 import Product from "../../models/product/model.product.js";
-import {_fGetFullProducts} from "./function.product.js";
-
-
+import { _fGetFullProducts } from "./function.product.js";
 
 export default {
   // not yet implement the validation for each field

@@ -18,10 +18,10 @@ const _fClientByDNI = (_clients, _DNI) => {
 const _fClientByNameDNI = (_clients, _name, _DNI) => {
   const _clientsByName = _fClientByName(_clients, _name);
   const _clientsByDNI = _fClientByDNI(_clients, _DNI);
-  console.log(_name,_DNI)
+  // console.log(_name,_DNI)
   // console.log(_clientsByName)
-  console.log(_clientsByDNI)
-  console.log()
+  // console.log(_clientsByDNI)
+  // console.log()
 
   return _clientsByName.filter(
     (_clientName) =>
@@ -75,7 +75,7 @@ export default {
     );
     res.status(200).json(updatedClient);
   },
-  // Not Implemented
+  
   redByNameDNI: async (req, res) => {
     const _name = req.params._name,
       _DNI = req.params._DNI;

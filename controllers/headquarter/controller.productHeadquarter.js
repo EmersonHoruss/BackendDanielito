@@ -12,6 +12,48 @@ const _fSaveProductH = async (_save) => {
   return await newProductH.save();
 };
 
+const _fStringNull = (_string) => {
+  return _string === "null" ? true : false;
+};
+
+const _fFilterByBrand = (_fullProductHs, _idBrand) => {
+  _fullProductHs = _fullProductHs.filter(
+    (_fullProductH) => _fullProductH._product._brand._id === _idBrand
+  );
+};
+
+const _fFilterByCategory = (_fullProductHs, _idCategory) => {
+  _fullProductHs = _fullProductHs.filter(
+    (_fullProductH) => _fullProductH._product._category._id === _idCategory
+  );
+};
+
+const _fFilterBySize = (_fullProductHs, _idSize) => {
+  _fullProductHs = _fullProductHs.filter(
+    (_fullProductH) => _fullProductH._product._size._id === _idSize
+  );
+};
+
+const _fGetReadedByBrandCategorySize = (
+  _fullProductHs,
+  _idBrand,
+  _idCategory,
+  _idSize
+) => {
+  let _result = JSON.parse(JSON.stringify(_fullProductHs));
+  const _isIdBrandNull = _fStringNull(_idBrand),
+    _isIdCategoryNull = _fStringNull(_idCategory),
+    _isIdSizeNull = _fStringNull(_idSize);
+
+  if (_fullProductHs.length === 0) return [];
+  if (_isIdBrandNull && _isIdCategoryNull && _isSizeNull) return [];
+  if (!_isIdBrandNull) _fFilterByBrand(_result, _idBrand);
+  if (!_isIdCategoryNull) _fFilterByCategory(_result, _idCategory);
+  if (!_isIdSizeNull) _fFilterBySize(_result, _idSize);
+
+  return _result;
+};
+
 export default {
   create: async (req, res) => {
     try {
@@ -34,6 +76,24 @@ export default {
       console.log(error);
       return res.status(500).json(error);
     }
+  },
+
+  readByBrandCategorySize: async (req, res) => {
+    const { _idHeadquarter, _idBrand, _idCategory, _idSize } = req.params;
+
+    const _productHs = await ProductH.find({
+      _idHeadquarter,
+    });
+    const _fullProductHs = await _fGetFullProductHs(_productHs);
+
+    const _productsByBrandCategorySize = _fGetReadedByBrandCategorySize(
+      _fullProductHs,
+      _idBrand,
+      _idCategory,
+      _idSize
+    );
+
+    res.status(200).json(_productsByBrandCategorySize);
   },
 
   red: async (req, res) => {
