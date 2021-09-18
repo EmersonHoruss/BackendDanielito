@@ -13,8 +13,9 @@ const _fBuildFullPrice = async (_price) => {
 };
 
 export const _fGetFullPrices = async (_prices) => {
-  return (_fullPrices = await Promise.all(
+  return await Promise.all(
     _prices.map(async (_price) => await _fBuildFullPrice(_price))
-  ));
+  );
+  
   //   console.log("GET FULL PRICES:", _fullPrices);
 };

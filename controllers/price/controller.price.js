@@ -23,9 +23,10 @@ export default {
   readFullByIdProductH: async (req, res) => {
     const _idProduct = req.params._idProduct;
     const _prices = await Price.find({ _idProduct });
-    const _fullPrices = _fGetFullPrices(_prices);
+    const _fullPrices = await _fGetFullPrices(_prices);
 
-    console.log(_fullPrices);
+    return res.json(_fullPrices);
+    // console.log(_fullPrices);
   },
 
   red: async (req, res) => {
