@@ -46,7 +46,7 @@ const _fGetReadedByBrandCategorySize = (
     _isIdSizeNull = _fStringNull(_idSize);
 
   if (_fullProductHs.length === 0) return [];
-  if (_isIdBrandNull && _isIdCategoryNull && _isSizeNull) return [];
+  if (_isIdBrandNull && _isIdCategoryNull && _isIdSizeNull) return [];
   if (!_isIdBrandNull) _fFilterByBrand(_result, _idBrand);
   if (!_isIdCategoryNull) _fFilterByCategory(_result, _idCategory);
   if (!_isIdSizeNull) _fFilterBySize(_result, _idSize);
@@ -80,7 +80,7 @@ export default {
 
   readByBrandCategorySize: async (req, res) => {
     const { _idHeadquarter, _idBrand, _idCategory, _idSize } = req.params;
-
+    console.log(req.params)
     const _productHs = await ProductH.find({
       _idHeadquarter,
     });

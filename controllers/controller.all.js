@@ -12,6 +12,9 @@ import Size from "../models/product/model.size.js";
 import Headquarter from "../models/headquarter/model.headquarter.js";
 import ProductHeadquarter from "../models/headquarter/model.productHeadquarter.js";
 
+import Price from "../models/price/model.price.js";
+import KindPrice from "../models/price/model.kindPrice.js";
+
 export default {
   red: async (req, res) => {
     const all = {
@@ -25,6 +28,8 @@ export default {
       Size: await Size.find(),
       Headquarter: await Headquarter.find(),
       ProductHeadquarter: await ProductHeadquarter.find(),
+      Price: await Price.find(),
+      KindPrice: await KindPrice.find(),
     };
     return res.json(all);
   },
