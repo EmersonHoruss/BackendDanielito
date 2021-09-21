@@ -9,7 +9,10 @@ router.post("/", detailSaleOrder.create);
 // Create
 router.put("/", detailSaleOrder.update);
 
+// Read all
+router.get("/", detailSaleOrder.red);
+
 // Read sale orders by _idSaleOrder
-router.get("/_idSaleOrder", detailSaleOrder.red);
+router.get("/readByIdSaleOrder/:_idSaleOrder", detailSaleOrder.redByIdSaleOrder);
 
 export default router;

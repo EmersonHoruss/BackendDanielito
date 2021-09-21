@@ -1,14 +1,16 @@
-### POST DETAIL_SALE_ORDER
+### POST DETAIL SALE ORDER
 POST http://localhost:3000/saleOrder/detailSaleOrder
 Content-Type: application/json
 
 {
     "_price": 17,
     "_amount": 1,
-    "_idProductHeadquarter": "6129ca45612ef93a24211614",
+    "_idProductHeadquarter": "6129bd093f46203ca4b1422c",
     "_idSaleOrder": "61252606ca64d0458cec3577"
 }
 
 
-### GET DETAILS_SALE_ORDER
-GET http://localhost:3000/saleOrder/detailSaleOrder/6128af108084fc1a80a4ffb7
+### GET DETAILS SALE ORDER BY ID SALE ORDER
+GET http://localhost:3000/saleOrder/detailSaleOrder/readByIdSaleOrder/6147f02075130212ac4800be
+
+###GET http://localhost:3000/saleOrder/detailSaleOrder/readByIdSaleOrder/6147ba2c1fe81f3648b7edad

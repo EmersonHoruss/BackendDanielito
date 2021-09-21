@@ -7,7 +7,7 @@ const router = Router();
 router.post("/", controllerPrice.create);
 
 // Read full prices by _idProduct
-router.get("/readFullPrices/:_idProduct", controllerPrice.readFullByIdProductH);
+router.get("/readFullPricesByIdProduct/:_idProduct", controllerPrice.readFullPricesByIdProduct);
 
 // Read all
 router.get("/", controllerPrice.red);

@@ -30,10 +30,10 @@ const _fIncreaseOrDecrease = (_stock, lastAmount, _requiredAmount) => {
 // make changes in db if is possible any operation and send a error msje or the
 // product in the headquarter updated
 const _fMainUpdate = async (_validation, _idProductH) => {
-  let _msje = null;
+  // let _msje;
   return typeof _validation === typeof ""
-    ? (msje = _validation)
-    : (updatedProductHeadquarter = await ProductH.findByIdAndUpdate(
+    ?  _validation
+    : (await ProductH.findByIdAndUpdate(
         _idProductH,
         {
           $set: { _stock: _validation },
@@ -44,9 +44,14 @@ const _fMainUpdate = async (_validation, _idProductH) => {
       ));
 };
 
-const _fUpdate = async (_lastAmount, _requiredAmount, _idProduct) => {
-  const _productH = await ProductH.find({ _idProductH });
+const _fUpdate = async (_lastAmount, _requiredAmount, _idProductH) => {
+  const _productH = await ProductH.findById( _idProductH );
   const _stock = _productH._stock;
+  // console.log('VALUES')
+  // console.log(_productH)
+  // console.log(_stock,typeof _stock)
+  // console.log(_lastAmount,typeof _lastAmount)
+  // console.log(_requiredAmount,typeof _requiredAmount)
 
   const _validation = _fIncreaseOrDecrease(
     _stock,
@@ -54,6 +59,7 @@ const _fUpdate = async (_lastAmount, _requiredAmount, _idProduct) => {
     _requiredAmount
   );
   return _fMainUpdate(_validation, _idProductH);
+  // return _validation
 };
 
 export const _fGetFullProductH = async (_productH) => {

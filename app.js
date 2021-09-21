@@ -26,7 +26,6 @@ app.use("/product/size", routes.product.size);
 
 //ROUTER PRICE 
 app.use("/price/price", routes.price.price);
-//ROUTER KIND_PRICE
 app.use("/price/kindPrice", routes.price.kindPrice);
 
 //ROUTER WORKER

@@ -10,8 +10,8 @@ Content-Type: application/json
 
 
 ### GET FULL PRICES BY _IDPRODUCT
-### http://localhost:3000/price/price/readFullPrices/:_idProduct
-GET http://localhost:3000/price/price/readFullPrices/61274514be557958acee78a2
+### http://localhost:3000/price/price/readFullPricesByIdProduct/:_idProduct
+GET http://localhost:3000/price/price/readFullPricesByIdProduct/61274514be557958acee78a2
 
 ### GET PRICE
 GET http://localhost:3000/price/price
