@@ -80,7 +80,7 @@ export default {
 
   readByBrandCategorySize: async (req, res) => {
     const { _idHeadquarter, _idBrand, _idCategory, _idSize } = req.params;
-    console.log(req.params)
+    console.log(req.params);
     const _productHs = await ProductH.find({
       _idHeadquarter,
     });
@@ -110,15 +110,23 @@ export default {
   },
 
   // not yet implemented
-  update: async (req, res) => {
-    try {
-      const { _idProductH, _lastAmount, _requiredAmount } = req.body;
+  updateOneById: async (req, res) => {
+    // try {
+    const _idProductH = req.params._idProductH;
+    // const { _lastAmount, _requiredAmount } = req.body;
+    const { _stock } = req.body;
 
-      res.send(msje);
-    } catch (error) {
-      console.log(error);
-      return res.status(500).json(error);
-    }
+    const _updatedProduct = await ProductH.findByIdAndUpdate(
+      { _id: _idProductH },
+      { _stock },
+      { new: true }
+    );
+
+    res.send(_updatedProduct);
+    // } catch (error) {
+    //   console.log(error);
+    //   return res.status(500).json(error);
+    // }
   },
 
   redFull: async (req, res) => {

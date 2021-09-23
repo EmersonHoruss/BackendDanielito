@@ -5,6 +5,10 @@ Content-Type: application/json
 {
 }
 
+### DELETE ONE SALE ORDER
+### DELETE http://localhost:3000/saleOrder/saleOrder/deleteOne/_idSaleOrder
+DELETE http://localhost:3000/saleOrder/saleOrder/deleteOne/614a5abb7ba42225c4ef9281
+
 ### PUT TAKE_SALE_ORDER
 PUT  http://localhost:3000/saleOrder/saleOrder/take
 Content-Type: application/json
@@ -32,3 +36,7 @@ GET http://localhost:3000/saleOrder/saleOrder/paid
 
 ### GET SAIL_ORDERS
 GET http://localhost:3000/saleOrder/saleOrder
+
+### GET SAIL_ORDERS
+#GET http://localhost:3000/saleOrder/saleOrder/readById/:_idSaleOrder
+GET http://localhost:3000/saleOrder/saleOrder/readById/6147f02075130212ac4800be

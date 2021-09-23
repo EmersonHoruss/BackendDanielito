@@ -1,6 +1,11 @@
 import DetailSO from "../../models/saleOrder/model.detailSaleOrder.js";
 import _FProductH from "../headquarter/function.productHeadquarter.js";
 
+import {
+  _fGetfullDetailSOsByIdSO,
+  _fDeleteOneById,
+} from "./function.detailSaleOrder.js";
+
 export default {
   create: async (req, res) => {
     try {
@@ -53,21 +58,39 @@ export default {
       _idProductHeadquarter: _idProductH,
     } = req.body;
 
-    const _detailSO = await ProductH.find({ _id });
+    const _detailSO = await DetailSO.find({ _id });
     const _lastAmount = _detailSO._amount;
 
-    const _msje = await _FProductH._fUpdate(_lastAmount, _amount, _idProduct);
+    const _msje = await _FProductH._fUpdate(_lastAmount, _amount, _idProductH);
     res.json(_msje);
   },
 
   red: async (req, res) => {
-    
-    return res.json('not implemented yet');
+    const allDetails = await DetailSO.find({});
+    return res.json(allDetails);
   },
 
-  redByIdSaleOrder: async (req, res) => {
-    const  _idSaleOrder  = req.params._idSaleOrder;
+  readByIdSaleOrder: async (req, res) => {
+    const _idSaleOrder = req.params._idSaleOrder;
     const detailsSaleOrder = await DetailSO.find({ _idSaleOrder });
     return res.json(detailsSaleOrder);
+  },
+
+  readFullByIdSaleOrder: async (req, res) => {
+    const _idSaleOrder = req.params._idSaleOrder;
+    // console.log(_idSaleOrder?true:false);
+
+    const _detailSOs =
+      _idSaleOrder !== "null"
+        ? await _fGetfullDetailSOsByIdSO(_idSaleOrder)
+        : [];
+
+    return res.json(_detailSOs);
+  },
+
+  deleteOneById: async (req, res) => {
+    const _idDetailSO = req.params._idDetailSO;
+    await _fDeleteOneById(_idDetailSO);
+    return res.json("successfully query");
   },
 };

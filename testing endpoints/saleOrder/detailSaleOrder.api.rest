@@ -9,8 +9,17 @@ Content-Type: application/json
     "_idSaleOrder": "61252606ca64d0458cec3577"
 }
 
+### 6129c85483df9e42f027015a
+
 
 ### GET DETAILS SALE ORDER BY ID SALE ORDER
 GET http://localhost:3000/saleOrder/detailSaleOrder/readByIdSaleOrder/6147f02075130212ac4800be
 
 ###GET http://localhost:3000/saleOrder/detailSaleOrder/readByIdSaleOrder/6147ba2c1fe81f3648b7edad
+
+### GET FULL DETAILS SALE ORDER BY ID SALE ORDER (FULL JUST IN THE PRODUCTS BY HEADQUARTER)
+GET http://localhost:3000/saleOrder/detailSaleOrder/readFullByIdSaleOrder/6128b03ebad9ba3c1883c118
+
+
+### GET ALL DETAILS SALE ORDER
+GET http://localhost:3000/saleOrder/detailSaleOrder

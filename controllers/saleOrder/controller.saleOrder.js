@@ -1,6 +1,8 @@
 import SaleOrder from "../../models/saleOrder/model.saleOrder.js";
 import Worker from "../worker/controller.worker.js";
 
+import { _fDeleteManyByIdSO } from "./function.detailSaleOrder.js";
+
 const _fExists = async (_id) => {
   const saleOrder = await SaleOrder.findById(_id);
   return saleOrder ? true : false;
@@ -67,9 +69,7 @@ const _fManagementErrors = async (_id, _idWorker, take = true) => {
     : await _fErrorCollecting(_id, _idWorker);
 };
 
-const _fSaleOrderVacuo = async()=>{
-
-}
+const _fSaleOrderVacuo = async () => {};
 
 export default {
   start: async (req, res) => {
@@ -104,6 +104,13 @@ export default {
             }
           );
     res.status(200).json(_msje);
+  },
+
+  deleteByIdSO: async (req, res) => {
+    const _idSaleOrder = req.params._idSaleOrder;
+    await _fDeleteManyByIdSO(_idSaleOrder);
+    await SaleOrder.deleteOne({ _id: _idSaleOrder });
+    res.status(200).json({ message: "Request Succesfully" });
   },
 
   redNonPaid: async (req, res) => {
@@ -142,5 +149,12 @@ export default {
   red: async (req, res) => {
     const salesOrder = await SaleOrder.find();
     return res.json(salesOrder);
+  },
+
+  readById: async (req, res) => {
+    const _idSaleOrder = req.params._idSaleOrder;
+    const salesOrder = await SaleOrder.findById(_idSaleOrder);
+    return res.json(salesOrder);
+    // console.log('aa')
   },
 };

@@ -6,6 +6,12 @@ const router = Router();
 // Create
 router.post("/", controllerProductHeadquarter.create);
 
+// Update
+router.put(
+  "/updateById/:_idProductH",
+  controllerProductHeadquarter.updateOneById
+);
+
 // Read By brand, category and size
 router.get(
   "/readByBrandCategorySize/:_idHeadquarter/:_idBrand/:_idCategory/:_idSize",
